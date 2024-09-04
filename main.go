@@ -49,10 +49,25 @@ func getTodoById(context *gin.Context) {
 
 }
 
+// Add a newTodo
+
+func addNewTodo(context *gin.Context) {
+	var newTodo Todo
+
+	err := context.BindJSON(&newTodo)
+
+	if err != nil {
+		return
+	}
+
+	context.IndentedJSON(http.StatusCreated, newTodo)
+}
+
 func main() {
 	router := gin.Default()
 	router.GET("/todos", getTodos)
 	router.GET("/todos/:id", getTodoById)
+	router.POST("/todos", addNewTodo)
 
 	err := router.Run(":8080")
 

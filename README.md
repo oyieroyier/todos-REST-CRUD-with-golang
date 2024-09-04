@@ -55,7 +55,7 @@ To use this repo, follow these steps:
 
       http://localhost:8080/
 
-## `GET` endpoint
+## `GET` all todos.
 
     /todos
 
@@ -80,7 +80,7 @@ To use this repo, follow these steps:
 ]
 ```
 
-## `GET` endpoint
+## `GET` single todo
 
     /todos/:id
 
@@ -98,6 +98,20 @@ To use this repo, follow these steps:
         "message": "selected todo not found"
     }
 ```
+
+## `POST` a new todo.
+
+    /todos
+
+### Response:
+```json
+    {
+      "id": "4",
+      "title": "Find out how to implement hot reload in Go",
+      "completed": false
+    }
+```
+
 
 ## Authors
 
