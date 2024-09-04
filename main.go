@@ -24,18 +24,17 @@ func getTodos(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, todos)
 }
 
-// Filter todo by ID
+// Filter by ID
 func filterTodoById(id string) (*Todo, error) {
 	for index, value := range todos {
 		if value.ID == id {
 			return &todos[index], nil
 		}
 	}
-	// If it does not find a Todo with the ID, it will return nil and an error.
 	return nil, errors.New("selected todo not found")
 }
 
-// Get the single Todo by id.
+// Get the single by id.
 func getTodoById(context *gin.Context) {
 	id := context.Param("id")
 
